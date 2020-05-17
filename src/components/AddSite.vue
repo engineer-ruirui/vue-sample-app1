@@ -1,10 +1,10 @@
 <template>
   <div>
-    <router-link to="/">Back</router-link>
+    <router-link>Back</router-link>
     <br>
     <input v-model="siteName" placeholder="Site Name">
     <input v-model="siteURL" placeholder="Site Url">
-    <button v-on:click="editSite()">EDIT</button>
+    <button v-on:click="addSite()">ADD</button>
   </div>
 </template>
 
@@ -16,37 +16,28 @@ export default {
       siteURL: ""
     }
   },
-  created () {
-    const id = this.$route.params.id;
-    fetch(`http://localhost:3000/sites/${id}`)
-    .then((res)=>res.json())
-    .then((data)=> {
-      this.siteName = data.name;
-      this.siteURL = data.url;
-    })
-    .catch((err)=>console.log(err));
-  },
   methods: {
-    editSite () {
+    addSite () {
       if (this.siteName === "" || this.siteURL === "") {
         return;
       }
-      const id = this.$route.params.id;
+
       const siteInfo = {
         name: this.siteName,
         url: this.siteURL
       }
 
-      fetch(`http://localhost:3000/sites/${id}`, {
-        method:'PUT',
+      fetch('http://localhost:3000/sites', {
+        method: 'POST',
         headers: {
           'Content-type':'application/json'
         },
         body: JSON.stringify(siteInfo)
       })
-      .then(()=>{
-        this.siteName = "";
-        this.siteURL = "";
+      .then(() => {
+        this.siteName = '';
+        this.siteURL = '';
+        this.$router.push('/');
       })
       .catch((err)=>console.log(err));
     }
