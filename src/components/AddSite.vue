@@ -1,10 +1,16 @@
 <template>
   <div>
-    <router-link>Back</router-link>
+    <router-link to="/">Back</router-link>
     <br>
-    <input v-model="siteName" placeholder="Site Name">
-    <input v-model="siteURL" placeholder="Site Url">
-    <button v-on:click="addSite()">ADD</button>
+    <div class="card">
+      <div class="card-body">
+        <div class="form-group">
+          <input v-model="siteName" placeholder="Site Name" class="form-control">
+          <input v-model="siteURL" placeholder="Site Url" class="form-control">
+          <button v-on:click="addSite()" class="btn btn-primary">ADD</button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 

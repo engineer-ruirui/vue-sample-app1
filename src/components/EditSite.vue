@@ -2,9 +2,15 @@
   <div>
     <router-link to="/">Back</router-link>
     <br>
-    <input v-model="siteName" placeholder="Site Name">
-    <input v-model="siteURL" placeholder="Site Url">
-    <button v-on:click="editSite()">EDIT</button>
+    <div class="card">
+      <div class="card-body">
+        <div class="form-group">
+          <input v-model="siteName" placeholder="Site Name" class="form-control">
+          <input v-model="siteURL" placeholder="Site Url" class="form-control">
+          <button v-on:click="editSite()" class="btn btn-primary">EDIT</button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 

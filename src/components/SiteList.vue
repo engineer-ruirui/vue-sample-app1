@@ -1,12 +1,12 @@
 <template>
   <div>
-    <button v-on:click="addSite">ADD</button>
-    <h5>Site List</h5>
-    <ul>
-      <li v-for="(site) in sites" v-bind:key="site.id">
+    <button v-on:click="addSite" class="btn btn-primary add">ADD</button>
+    <h5 class="text-center">Site List</h5>
+    <ul class="list-group">
+      <li v-for="(site) in sites" v-bind:key="site.id" class="list-group-item">
         <a v-bind:href="site.url" target="_blank">{{ site.name }}</a>
-        <button v-on:click="editSite(site.id)">EDIT</button>
-        <button v-on:click="deleteSite(site.id)">DEL</button>
+        <button v-on:click="deleteSite(site.id)" class="float-right btn btn-danger btn-sm">DEL</button>
+        <button v-on:click="editSite(site.id)" class="float-right btn btn-primary btn-sm mr-2">EDIT</button>
       </li>
     </ul>
   </div>
@@ -47,3 +47,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.add {
+  margin-top: 10px;
+}
+</style>
