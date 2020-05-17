@@ -13,6 +13,6 @@
 body {
   margin-top: 20px;
   margin-bottom: 20px;
-  background-color: lightgreen;
+  background-color: lightblue;
 }
 </style>

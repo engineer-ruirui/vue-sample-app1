@@ -53,6 +53,7 @@ export default {
       .then(()=>{
         this.siteName = "";
         this.siteURL = "";
+        this.$router.push('/');
       })
       .catch((err)=>console.log(err));
     }
